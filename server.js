@@ -52,6 +52,9 @@ const verifyUser = (req, res, next) => {
     }
 }
 
+app.get('/', (req,res)=> {
+    res.status(200).send('server is running')
+})
 app.get('/dashboard', verifyUser, (req, res) => {
     return res.json({Status: "Success", name: req.name})
 })
@@ -460,6 +463,6 @@ app.get('/logout', (req,res)=> {
     return res.json({Status: "Successfully logged out"})
 })
 
-app.listen(8080, ()=> {
-    console.log('listening')
+app.listen(5000, ()=> {
+    console.log('listening on port 5000')
 })
